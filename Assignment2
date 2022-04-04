@@ -1,0 +1,161 @@
+class Students
+ @@deptA=["Anjali","Elango","Gayathri", "Priya", "Saranya"]
+@@deptB=["Arun","Bhavana","Jenifer", "Mano", "Sowmiya"]
+@@deptC=["Bala","Dhivya","Hari", "Nandhini", "Teju"]
+@@deptD=["Arjun","Guna"," Kaviya", "Roshini", "Santhosh"]
+@@deptE=["Abirami","Darun","John", "Nivin", "Praveen"]
+
+class<<self
+     def dept_A
+        @@deptA
+    end
+end   
+class<<self
+   def dept_B
+       @@deptB
+  end
+end  
+class<<self
+
+   def dept_C
+       @@deptC
+  end
+end
+
+class<<self
+   def dept_D
+       @@deptD
+  end
+end
+
+class<<self
+   def dept_E
+       @@deptE
+  end
+end
+  
+def self.update(a, b, c) 
+ case c
+     when 1
+      @@deptA[b]=a
+     when 2
+      @@deptB[b]=a
+     when 3
+      @@deptC[b]=a
+     when 4
+      @@deptD[b]=a
+     when 5
+      @@deptE[b]=a
+    end
+end
+
+def self.add(a, b) 
+ case b
+     when 1
+      @@deptA.push(a) 
+     when 2
+      @@deptB.push(a) 
+     when 3
+      @@deptC.push(a) 
+     when 4
+      @@deptD.push(a) 
+     when 5
+      @@deptE.push(a) 
+    end
+end
+
+def self.delete(a, b) 
+ case b
+     when 1
+      @@deptA.delete(a) 
+     when 2
+      @@deptB.delete(a) 
+     when 3
+      @@deptC.delete(a) 
+     when 4
+      @@deptD.delete(a)  
+     when 5
+      @@deptE.delete(a) 
+    end
+ end
+end
+h={"A"=>Students.dept_A,"B"=>Students.dept_B,"C"=>Students.dept_C,"D"=>Students.dept_D,"E"=>Students.dept_E}
+puts "List of students"
+puts ""
+puts "Select any one - A- Mech, B-Chem, C- CS, D-ECE, E-civil "
+puts "1. view the list of students"
+puts "2. update the list"
+puts "3. Add to the list "
+puts "4. Delete in the list"
+puts "5. Exit now"
+n=gets.chomp.to_i
+while n!=5
+ case n
+  when 1
+   puts "Enter the department you want to view"
+   val=gets.chomp
+   puts h[val]
+   puts "Select any one - A- Mech, B-Chem, C- CS, D-ECE, E-civil "
+   puts "1. view the list of students"
+   puts "2. update the list"
+   puts "3. Add to the list "
+   puts "4. Delete in the list"
+   puts "5. Exit now"
+
+   n=gets.chomp.to_i
+  when 2
+   puts "Enter the department to update"
+   val=gets.chomp
+   puts h[val]
+   puts "enter index"
+   l=gets.chomp.to_i
+   puts "enter string"
+   str=gets.chomp
+   q=val.ord-64
+   Students.update(str,l,q)
+   puts h[val]
+   puts "Select any one - A- Mech, B-Chem, C- CS, D-ECE, E-civil "
+   puts "1. view the list of students"
+   puts "2. update the list"
+   puts "3. Add to the list "
+   puts "4. Delete in the list"
+   puts "5. Exit now"
+   n=gets.chomp.to_i
+  when 3
+   puts "Enter the department you want to add"
+   val=gets.chomp
+   puts "enter string"
+   str=gets.chomp
+   q=val.ord-64
+   Students.add(str,q)
+   puts h[val]
+   puts "Select any one - A- Mech, B-Chem, C- CS, D-ECE, E-civil "
+   puts "1. view the list of students"
+   puts "2. update the list"
+   puts "3. Add to the list "
+   puts "4. Delete in the list"
+   puts "5. Exit now"
+   n=gets.chomp.to_i
+  when 4
+    puts  "Select any one - A- Mech, B-Chem, C- CS, D-ECE, E-civil "
+    puts "1. view the list of students"
+    puts "2. update the list"
+    puts "3. Add to the list "
+    puts "4. Delete in the list"
+    puts "5. Exit now"
+   val=gets.chomp
+   puts h[val]
+   puts "enter string"
+   str=gets.chomp
+   q=val.ord-64
+ Students.delete(str,q)
+   puts h[val]
+   puts  "Select any one - A- Mech, B-Chem, C- CS, D-ECE, E-civil "
+   puts "1. view the list of students"
+   puts "2. update the list"
+   puts "3. Add to the list "
+   puts "4. Delete in the list"
+   puts "5. Exit now"
+   n=gets.chomp.to_i
+ end
+end
